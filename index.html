@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow - Task Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+  <div class="app-container">
+    <header>
+      <h1>TaskFlow</h1>
+      <div class="theme-controls">
+        <button id="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="color-picker">
+          <button class="color-swatch active" data-color="lilac" aria-label="Set lilac theme"></button>
+          <button class="color-swatch" data-color="red" aria-label="Set red theme"></button>
+          <button class="color-swatch" data-color="green" aria-label="Set green theme"></button>
+          <button class="color-swatch" data-color="pink" aria-label="Set pink theme"></button>
+          <button class="color-swatch" data-color="yellow" aria-label="Set yellow theme"></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="task-input-section">
+        <form id="task-form">
+          <input type="text" id="task-title" placeholder="Add new task..." required>
+          <textarea id="task-description" placeholder="Add description (optional)"></textarea>
+          <button type="submit" id="add-task">
+            <i class="fas fa-plus"></i> Add Task
+          </button>
+        </form>
+      </section>
+
+      <section class="task-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+        <div class="toggle-container">
+          <label class="toggle">
+            <input type="checkbox" id="hide-completed">
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">Hide completed</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="tasks-container">
+        <ul id="task-list">
+          <!-- Tasks will be added here dynamically -->
+        </ul>
+        <div id="empty-state" class="hidden">
+          <i class="fas fa-check-circle"></i>
+          <p>No tasks to display</p>
+        </div>
+      </section>
+    </main>
+
+    <div id="notification" class="notification">
+      <p id="notification-text"></p>
+    </div>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="theme.js"></script>
+  <script src="app.js"></script>
+</body>
+</html
